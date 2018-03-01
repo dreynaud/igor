@@ -49,4 +49,14 @@ public class DockerRegistryV1Key {
     public String toString() {
         return String.format("%s:%s:%s:%s:%s:%s", prefix, id, account, registry, repository, tag);
     }
+
+    @Override
+    public int hashCode() {
+        return toString().hashCode();
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        return obj instanceof DockerRegistryV1Key && toString().equals(obj.toString());
+    }
 }
